@@ -1,0 +1,16 @@
+[Unit]
+Description=compiler api
+
+[Service]
+ExecStart=/usr/bin/nodejs /var/www/api/app.js
+WorkingDirectory=/var/www/api
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=compiler-api
+User=hrbiz
+Group=hrbiz
+Environment=PORT=3000
+
+[Install]
+WantedBy=multi-user.target

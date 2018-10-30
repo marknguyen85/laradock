@@ -1,0 +1,284 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="langs.js"></script><!-- installing script creating codes and creating templates for intial page  -->
+</head>
+
+<style type="text/css">
+label {
+    width:200px;
+    display: inline-block;
+    float: left;
+}
+input, textarea {
+    display: inline-block;
+}
+.output{
+	font-family: monospace;
+	white-space: pre-line;
+	border:1px solid #ccc;
+	background: #eee;
+	min-height: 50px;
+}
+
+h3{
+	margin-top: 0;
+	padding: 0;
+}
+</style>
+
+<body>
+    <div class="row">
+        <div class="col-md-offset-1 col-md-6">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#home" data-toggle="tab">Compile code</a></li>
+                <li><a href="#addition" data-toggle="tab">Compile file</a></li>
+                <li><a href="#additions" data-toggle="tab">Compile file in array stdin</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>
+                                This is an example client to demo the sandboxed compiling.
+                            </p>
+                            <h3>Code Compile</h3>
+                            <!-- getiing the id of the language -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="langid1" class="control-label col-sm-2">Language</label>
+                                    <div class="col-md-10">
+                                        <select class="form-control" id="langid1"></select>
+                                        <small id="langhelp1" class="form-text text-muted">Language you want compile.</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="code1" class="control-label col-sm-2">Code</label>
+                                    <div class="col-md-10">
+                                        <textarea id="code1" rows="6" class="form-control"><?php
+                                            // 自分の得意な言語で
+                                            // Let’s チャレンジ！！
+                                                                    
+                                                $input_lines = fgets(STDIN);
+                                                echo $input_lines;</textarea>
+                                        <br />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="stdin1" class="control-label col-sm-2">STDIN</label>
+                                    <div class="col-md-10">
+                                        <textarea id="stdin1" class="form-control">hello</textarea>
+                                        <br />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2"></label>
+                                    <div class="col-md-10">
+                                        <input type="button" class="btn btn-primary" value="Compile" id="send1">
+                                        <input type="button" class="btn btn-primary" value="Test All Languages" id="testAll1">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="addition" class="tab-pane fade">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>
+                                This is an example client to demo the sandboxed compiling for file in server.
+                            </p>
+                            <h3>Code file Compile</h3>
+                            <!-- getiing the id of the language -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="langid2" class="control-label col-sm-2">Language</label>
+                                    <div class="col-md-10">
+                                        <select class="form-control" id="langid2"></select>
+                                        <small id="langhelp2" class="form-text text-muted">Language you want compile.</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="code2" class="control-label col-sm-2">Path file</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" id="code2" value="user_code/guest/index.php">
+                                        <small id="langhelp2" class="form-text text-muted">Path of code file.</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="stdin2" class="control-label col-sm-2">STDIN</label>
+                                    <div class="col-md-10">
+                                        <textarea id="stdin2" class="form-control">hello</textarea>
+                                        <br />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2"></label>
+                                    <div class="col-md-10">
+                                        <input type="button" class="btn btn-primary" value="Compile file" id="send2">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="additions" class="tab-pane fade">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>
+                                This is an example client to demo the sandboxed compiling for file in server with array stdin.
+                            </p>
+                            <h3>Code file Compile with stdin array</h3>
+                            <!-- getiing the id of the language -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="langid3" class="control-label col-sm-2">Language</label>
+                                    <div class="col-md-10">
+                                        <select class="form-control" id="langid3"></select>
+                                        <small id="langhelp2" class="form-text text-muted">Language you want compile.</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="code3" class="control-label col-sm-2">Path file</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" id="code3" value="user_code/guest/index.php">
+                                        <small id="langhelp2" class="form-text text-muted">Path of code file.</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="stdin2" class="control-label col-sm-2">STDIN</label>
+                                    <div class="col-md-10">
+                                        <textarea id="stdin3" class="form-control">[[1,2,"3"],[1,2,"3",4]]</textarea>
+                                        <br />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2"></label>
+                                    <div class="col-md-10">
+                                        <input type="button" class="btn btn-primary" value="Compile file" id="send3">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <p>&nbsp;</p>
+            <h3>Results here</h3>
+            <hr>
+            <p class="output" id="output">Output appears here</p>
+        </div>
+    </div>
+<!-- output box -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+        function loadLanguage(){
+            var langs = [];
+            var options = '';
+            var msg = '';
+            for (var i in LANGS)
+            {
+                msg += LANGS[i][0] + ": " + i +"\n";	
+                options += '<option value=' + LANGS[i][0] + '>' + i + '</option>'
+            }
+            
+            $('#langid1, #langid2, #langid3').html(options);
+            console.log(msg);
+        }
+        $(document).ready(function(){
+            loadLanguage();
+            $('#langid1').change(function(){
+                var langId = $(this).val();
+                var key = $(this).find('option:selected').text();
+                var code = Codes[key];
+                $('#code1').val(code);
+            });
+        });
+
+        //COMPILE USER GIVEN CODE
+        $('#send1').on('click', function() {
+            var langid = $('#langid1').val();
+            var codeF = $('#code1').val();
+            var stdin = $('#stdin1').val();
+            // passing the json file to the page 
+            var json = {
+                language: langid,
+                code: codeF,
+                stdin:stdin
+            };
+            console.log(json);
+
+            $.post("/compile", json, function(data, error, xhr) {
+                document.getElementById("output").innerHTML = data.output;
+            });
+        });
+
+        $('#send2').on('click', function() {
+            var langid = $('#langid2').val();
+            var codeF = $('#code2').val();
+            var stdin = $('#stdin2').val();
+            // passing the json file to the page 
+            var json = {
+                language: langid,
+                codefile: codeF,
+                stdin:stdin
+            };
+            console.log(json);
+
+            $.post("/compilecode", json, function(data, error, xhr) {
+                document.getElementById("output").innerHTML = data.output;
+            });
+        });
+
+        $('#send3').on('click', function() {
+            var langid = $('#langid3').val();
+            var codeF = $('#code3').val();
+            var stdin = $('#stdin3').val();
+            // passing the json file to the page 
+            var json = {
+                language: langid,
+                codefile: codeF,
+                stdin:stdin
+            };
+            console.log(json);
+
+            $.post("/compilecodes", json, function(data, error, xhr) {
+                document.getElementById("output").innerHTML = data.output;
+            });
+        });
+
+        //RUN TESTS ON ALL LANGUAGES
+        var langid_to_name = [];
+
+        $('#testAll1, #testAll2').on('click', function() {
+            //send compile request for each language
+            $("#output").html('');
+            for (var i in LANGS) {
+                var langid = LANGS[i][0];
+                var codeF = Codes[i];
+                langid_to_name[langid] = i;
+
+                //prepare data
+                var json = {
+                    language: langid,
+                    code: codeF
+                };
+
+                //send post and print result
+                $.post("/compile", json, function(data, error, xhr) {
+                    $("#output").append("<b>"+langid_to_name[data.langid] + "</b>: " +
+                        data.output + "<br><br>");
+                });
+
+            }
+        });
+    </script>
+
+</body>
+
+</html>

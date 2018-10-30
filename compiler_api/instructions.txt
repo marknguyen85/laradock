@@ -1,0 +1,22 @@
+- install nodejs
+- install nginx
+- navigate to dir path to api and run 
+    sudo chmod 777 DockerTimeout.sh
+    sudo chmod 777 Payload/script.sh
+    sudo chmod 777 Payload/javaRunner.sh
+
+- open file compiler-api.service update information:
+    ExecStart
+    WorkingDirectory
+    User
+    Group
+    Environment
+
+- copy to /etc/systemd/system/: 
+    sudo cp -a service/compiler-api.service /etc/systemd/system/
+- start service: 
+    sudo service compiler-api start
+- copy file compiler in nginx to path nginx site available
+    sudo cp -a nginx/compiler /etc/nginx/sites-available/
+- restart nginx: 
+    sudo service nginx restart && sudo service nginx enable
