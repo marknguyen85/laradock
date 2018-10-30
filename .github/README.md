@@ -1,6 +1,6 @@
 # Install docker, laradock and run laravel
 place app code laravel with tree dir below 
-- app
+- laravel
   - storage
   - public
   - ....
