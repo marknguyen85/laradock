@@ -1,3 +1,11 @@
+# Install docker, laradock and run laravel
+place app code laravel with tree dir below 
+- app
+  - storage
+  - public
+  - ....
+  - laradock
+ 
 # step 0 install docker		
 	# on windows	
 		- download docker toolbox then install
